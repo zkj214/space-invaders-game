@@ -16,7 +16,7 @@ screen.bgpic("images/background.gif")
 
 turtle.register_shape("images/invader.gif")
 turtle.register_shape("images/player.gif")
-
+screen.tracer(0)
 
 scoreboard=Scoreboard()
 player=Ship()
@@ -26,7 +26,6 @@ enemies = []
 for i in range(10):
     alien=Aliens()
     enemies.append(alien)
-
 
 enemyspeed = 5
 
@@ -66,7 +65,6 @@ def isCollision_enemy_bullet(bala, kalaban):
     else:
         return False
 
-
 def isCollision_enemy_player(kalaro, kalaban):
     distance = math.sqrt(
         math.pow(kalaro.xcor() - kalaban.xcor(), 2) + math.pow(kalaro.ycor() - kalaban.ycor(), 2)
@@ -87,6 +85,8 @@ missed_enemies = 0
 game_is_on=True
 
 while game_is_on:
+    screen.update()
+    time.sleep(0.15)
     for enemy in enemies:
         x = enemy.xcor()
         x += enemyspeed
