@@ -7,7 +7,6 @@ class Aliens(Turtle):
         super().__init__()
         self.shape("images/invader.gif")
         self.penup()
-        self.speed(0)
         x = random.randint(-200, 200)
         y = random.randint(100, 250)
         self.goto(x, y)
