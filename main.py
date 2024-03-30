@@ -1,5 +1,4 @@
 import turtle
-import math
 import random
 from scoreboard import Scoreboard
 from lasers import Lasers
@@ -56,25 +55,6 @@ def fire_bullet():
         bullet.showturtle()
 
 
-def isCollision_enemy_bullet(bala, kalaban):
-    distance = math.sqrt(
-        math.pow(bala.xcor() - kalaban.xcor(), 2) + math.pow(bala.ycor() - kalaban.ycor(), 2)
-    )
-    if distance < 25:
-        return True
-    else:
-        return False
-
-def isCollision_enemy_player(kalaro, kalaban):
-    distance = math.sqrt(
-        math.pow(kalaro.xcor() - kalaban.xcor(), 2) + math.pow(kalaro.ycor() - kalaban.ycor(), 2)
-    )
-    if distance < 30:
-        return True
-    else:
-        return False
-
-
 turtle.listen()
 turtle.onkey(move_left, "Left")
 turtle.onkey(move_right, "Right")
@@ -108,7 +88,7 @@ while game_is_on:
                     e.goto(x, y)
                     e.showturtle()
            
-            enemyspeed *= -1
+            enemyspeed *= -1 #move in reverse
 
         if enemy.xcor() < -270:
             for e in enemies:
@@ -126,9 +106,9 @@ while game_is_on:
                     e.goto(x, y)
                     e.showturtle()
            
-            enemyspeed *= -1
+            enemyspeed *= -1 #move in reverse
 
-        if isCollision_enemy_bullet(bullet, enemy):
+        if bullet.distance(enemy) < 20:
             bullet.hideturtle()
             bullet.bulletstate = "ready"
             bullet.goto(0, -400)
@@ -136,11 +116,11 @@ while game_is_on:
             x = random.randint(-200, 200)
             y = random.randint(100, 250)
             enemy.goto(x, y)
-            enemyspeed += 0.5
+
             scoreboard.score += 10
             scoreboard.update_scoreboard()
 
-        if isCollision_enemy_player(player, enemy):
+        if player.distance(enemy) < 37:
             game_is_on=False
             player.hideturtle()
             bullet.hideturtle()

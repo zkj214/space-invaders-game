@@ -7,7 +7,6 @@ class Lasers(Turtle):
         self.color("red")
         self.shape("square")
         self.penup()
-        self.speed(0)
         self.setheading(90)
         self.shapesize(0.15, 1)
         self.hideturtle()

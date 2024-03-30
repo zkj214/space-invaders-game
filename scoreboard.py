@@ -4,7 +4,6 @@ class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        self.speed(0)
         self.color("orange")
         self.penup()
         self.goto(-280, 250)
