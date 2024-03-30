@@ -129,7 +129,7 @@ while game_is_on:
             screen.bgpic("images/end.gif")
             screen.bgcolor("black")
             time.sleep(3)
-
+    #movement of bullet
     if bullet.bulletstate == "fire":
         y = bullet.ycor()
         y += bullet.bulletspeed
