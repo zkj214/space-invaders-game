@@ -88,7 +88,7 @@ while game_is_on:
                     e.goto(x, y)
                     e.showturtle()
            
-            enemyspeed *= -1 #move in reverse
+            enemyspeed *= -1 # move in reverse
 
         if enemy.xcor() < -270:
             for e in enemies:
@@ -106,7 +106,7 @@ while game_is_on:
                     e.goto(x, y)
                     e.showturtle()
            
-            enemyspeed *= -1 #move in reverse
+            enemyspeed *= -1 # move in reverse
 
         if bullet.distance(enemy) < 20:
             bullet.hideturtle()
@@ -129,7 +129,7 @@ while game_is_on:
             screen.bgpic("images/end.gif")
             screen.bgcolor("black")
             time.sleep(3)
-    #movement of bullet
+    # movement of bullet
     if bullet.bulletstate == "fire":
         y = bullet.ycor()
         y += bullet.bulletspeed
